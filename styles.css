@@ -1,0 +1,30 @@
+#table{
+    width: 750px;
+     margin: auto;
+     
+}
+
+.headers{
+    font-style: italic; 
+    color: black; 
+    font-weight: bolder; 
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+input {
+    outline: none;
+    height: 35px;
+    border: none;
+}
+table, td{
+    border-collapse: collapse;    
+}
+
+table , td{
+    border: 1px solid black;
+}
+tr{
+    height: 35px;
+}
+ 
