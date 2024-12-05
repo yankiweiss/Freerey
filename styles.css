@@ -54,4 +54,9 @@ tr{
     border: none;
     padding: 10px;
 }
+
+.logo{
+    display: block;
+    margin: auto;
+}
  
