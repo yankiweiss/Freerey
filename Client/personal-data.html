@@ -5,8 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freerye - Personal Data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
 </head>
+<style>
+    input{
+        border: black 1px solid;
+    }
+</style>
 
 <body>
 
@@ -22,13 +29,21 @@
         <br>
         <br>
 
+        <form>
+            <div class="input-group">
+            <label for="Name"></label>
+            <input placeholder="Name" class="col-form-label">
+            <input placeholder="Title" class="col-form-label">
+            </div>
+        </form>
+
         <form id="myForm">
-            <table>
+            <table class="table table-striped" >
                 <tr>
 
                     <td colspan="2">
                         <label for="Name"></label>
-                        <input id="Name" placeholder="NAME (LAST, FIRST, MIDDLE)" size="50" name="name">
+                        <input id="Name"  class="form-control" placeholder="NAME (LAST, FIRST, MIDDLE)" size="50" name="name">
                     </td>
 
                     <td><input placeholder="TITLE" name="title">
@@ -68,7 +83,7 @@
 
 
             <p class="headers">EMERGENCY CONTACT INFORMATION</p>
-            <table style="width: 100%;">
+            <table >
                 <tr>
 
                     <td>
