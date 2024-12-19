@@ -59,4 +59,8 @@ tr{
     display: block;
     margin: auto;
 }
+
+button{
+    padding: 3px 20px 3px 20px;
+}
  
