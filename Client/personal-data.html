@@ -1,13 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freerye - Personal Data</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
 
-    <h1>Persoanl Data Page</h1>
-    
+    <img class="logo" src="./Images/Screenshot 2024-12-05 155457.png">
+    <br><br><br>
+
+    <div style="width: 850px; margin: auto;">
+
+
+
+        <p class="headers">Personal Data:</p>
+
+        <br>
+        <br>
+
+        <form id="myForm">
+            <table>
+                <tr>
+
+                    <td colspan="2">
+                        <label for="Name"></label>
+                        <input id="Name" placeholder="NAME (LAST, FIRST, MIDDLE)" size="50" name="name">
+                    </td>
+
+                    <td><input placeholder="TITLE" name="title">
+                    </td>
+                    <td><input placeholder="SOCAIL SECURITY NO." name="socail-security"></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input placeholder="PLACE OF BIRTH (CITY, STATE, COUNTRY)" name="place-of-birth">
+                    </td>
+                    <td><input placeholder="DATE OF BIRTH" name="date-of-birth"></td>
+                </tr>
+                <tr>
+                    <td><input placeholder="HOME ADRESS" size="10" name="home-adress"></td>
+                    <td><input placeholder="CITY" name="city"></td>
+                    <td><input placeholder="STATE" name="state"></td>
+                    <td><input placeholder="ZIP CODE" name="zip-code"></td>
+                </tr>
+                <tr>
+                    <td><input placeholder="PHONE NO." name="phone-number"></td>
+                    <td><input placeholder="CELL PHONE NO." name="cellphone"></td>
+                    <td><input placeholder="FAX NO." name="fax"></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input placeholder="EMAIL ADRESS:" name="email"></td>
+                    <td><input placeholder="OFFICE PHONE NO." name="office-phone"></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><input placeholder="LANGUAGES YOU SPEAK" name="languages"></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><input placeholder="PROFESSIONAL SPECIALTY" name="Specialty"></td>
+                </tr>
+            </table>
+
+
+
+
+
+
+            <br><br>
+
+
+            <p class="headers">EMERGENCY CONTACT INFORMATION</p>
+            <table style="width: 100%;">
+                <tr>
+
+                    <td>
+                        <p>BUSINESS/ALTERNATE DAYTIME CONTACT</p>
+                    </td>
+                    <td style="width: 35%;"><input type="checkbox"><label>BUSINESS</label>
+                        <input type="checkbox"><label>SPOUSE</label>
+                        <input type="checkbox"><label>RELATIVE</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input placeholder="NAME (LAST NAME, FIRST NAME)" name="emergency-contact-fullName"></td>
+                    <td><input placeholder="PHONE NO." name="emergency-contact-phone"></td>
+                </tr>
+                <tr>
+                    <td><input placeholder="CELL PHONE NO." name="emergency-contact-cell"></td>
+                    <td><input placeholder="EMAIL" name="emergency-contact-email"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>ALTERNATE BEFORE/AFTER HOURS CONTACT</p>
+                    </td>
+                    <td>
+                        <input type="checkbox"><label>BUSINESS</label>
+                        <input type="checkbox"><label>SPOUSE</label>
+                        <input type="checkbox"><label>RELATIVE</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input placeholder="NAME (LAST NAME, FIRST NAME)" name="alternate-emergency-contact-fullName">
+                    </td>
+                    <td><input placeholder="PHONE NO." name="alternate-emergency-contact-phone"></td>
+                </tr>
+                <tr>
+                    <td><input placeholder="CELL PHONE NO." name="alternate-emergency-contact-cell"></td>
+                    <td><input placeholder="EMAIL" name="alternate-emergency-contact-email"></td>
+                </tr>
+
+
+            </table>
+        </form>
+        <br>
+        <br>
+        <button onclick="introPage()">Back</button>
+        <button onclick="personalDataPage()">Next</button>
+    </div>
+
+
+
+
+    <script>
+
+        function extractFormValues() {
+            const form = document.getElementById('myForm');
+            const dataForm = {};
+            Array.from(form.element).forEach(element => {
+                FormData[element.name] = element.value;
+            })
+        }
+
+        function introPage() {
+            window.location.href = 'intro.html'
+        }
+
+        function personalDataPage() {
+            window.location.href = 'trainings.html';
+        }
+
+    </script>
+
+
+
 </body>
+
 </html>
