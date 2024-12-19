@@ -64,10 +64,6 @@
             </table>
 
 
-
-
-
-
             <br><br>
 
 
@@ -78,9 +74,9 @@
                     <td>
                         <p>BUSINESS/ALTERNATE DAYTIME CONTACT</p>
                     </td>
-                    <td style="width: 35%;"><input type="checkbox"><label>BUSINESS</label>
-                        <input type="checkbox"><label>SPOUSE</label>
-                        <input type="checkbox"><label>RELATIVE</label>
+                    <td style="width: 35%;"><input type="checkbox" name="business-daytime"><label>BUSINESS</label>
+                        <input type="checkbox" name="spouse-daytime"><label>SPOUSE</label>
+                        <input type="checkbox" name="relative-daytime"><label>RELATIVE</label>
                     </td>
                 </tr>
                 <tr>
@@ -96,9 +92,9 @@
                         <p>ALTERNATE BEFORE/AFTER HOURS CONTACT</p>
                     </td>
                     <td>
-                        <input type="checkbox"><label>BUSINESS</label>
-                        <input type="checkbox"><label>SPOUSE</label>
-                        <input type="checkbox"><label>RELATIVE</label>
+                        <input type="checkbox" name="business-after"><label>BUSINESS</label>
+                        <input type="checkbox" name="spouse-after"><label>SPOUSE</label>
+                        <input type="checkbox" name="relative-after"><label>RELATIVE</label>
                     </td>
                 </tr>
                 <tr>
@@ -117,7 +113,11 @@
         <br>
         <br>
         <button onclick="introPage()">Back</button>
-        <button onclick="personalDataPage()">Next</button>
+        <button class="js-next-button">Next</button>
+
+
+
+        <button class="js-testing-btn">Testing Local Storage</button>
     </div>
 
 
@@ -125,21 +125,69 @@
 
     <script>
 
+        const jsTesting = document.querySelector('.js-testing-btn');
+        jsTesting.addEventListener('click', loadFormData)
+
+        const jsNextBtn = document.querySelector('.js-next-button');
+
+        jsNextBtn.addEventListener('click',extractFormValues)
+        //jsNextBtn.addEventListener('click',trainingPage)
+
+
+
         function extractFormValues() {
             const form = document.getElementById('myForm');
-            const dataForm = {};
-            Array.from(form.element).forEach(element => {
-                FormData[element.name] = element.value;
+            const formData = {};
+            Array.from(form.elements).forEach(element => {
+        if (element.name) {
+          if (element.type === 'checkbox') {
+            formData[element.name] = element.checked;
+          } else {
+            formData[element.name] = element.value;
+          }
+        }
+
             })
+
+            localStorage.setItem('formData', JSON.stringify(formData));
+            alert('Form data saved to local storage.');
+            console.log('Form Data:', formData )
         }
 
         function introPage() {
             window.location.href = 'intro.html'
         }
 
-        function personalDataPage() {
+        function trainingPage() {
             window.location.href = 'trainings.html';
         }
+
+
+        // for Testing porpuses
+
+        function loadFormData() {
+      const savedData = localStorage.getItem('formData');
+      
+      if (savedData) {
+        const formData = JSON.parse(savedData);
+        const form = document.getElementById('myForm');
+
+        // Populate form fields
+        Array.from(form.elements).forEach(element => {
+          if (element.name && formData[element.name] !== undefined) {
+            if (element.type === 'checkbox') {
+              element.checked = formData[element.name];
+            } else {
+              element.value = formData[element.name];
+            }
+          }
+        });
+
+        alert('Form data loaded from local storage.');
+      } else {
+        alert('No saved data found.');
+      }
+    }
 
     </script>
 
