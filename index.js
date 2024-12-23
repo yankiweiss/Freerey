@@ -1,21 +1,22 @@
-const form = document.querySelector('form');
+function extractFormValues () {
+    const form = document.querySelector('.myForm');
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
+    const formData = {};
 
-    for(item of formData){
-        console.log(item[0], item[1])
-    }
+    Array.from(form.elements).forEach(element => {
+        if (element.name) {
+          if (element.type === 'checkbox') {
+            formData[element.name] = element.checked;
+          } else {
+            formData[element.name] = element.value;
+          }
+        }
+      })
 
-    fetch('https://httpbin.org/post', {
-        method: 'POST',
-        body: formData,
-    })
+    console.log('Form Data', formData)
 
-    .then(res => res.json())
-    .then(res => console.log(res))
-   
-})
+
+    
+}
 
  
