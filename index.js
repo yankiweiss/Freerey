@@ -1,19 +1,25 @@
 function extractFormValues () {
     const form = document.querySelector('.myForm');
+    const formData = new FormData(form)
 
-    const formData = {};
+    console.log(Object.fromEntries(formData.entries()))
 
-    Array.from(form.elements).forEach(element => {
-        if (element.name) {
-          if (element.type === 'checkbox') {
-            formData[element.name] = element.checked;
-          } else {
-            formData[element.name] = element.value;
-          }
-        }
-      })
+    
 
-    console.log('Form Data', formData)
+
+    // const formData = {};
+
+    // Array.from(form.elements).forEach(element => {
+    //     if (element.name) {
+    //       if (element.type === 'checkbox') {
+    //         formData[element.name] = element.checked;
+    //       } else {
+    //         formData[element.name] = element.value;
+    //       }
+    //     }
+    //   })
+
+    // console.log('Form Data', formData)
 
 
     
